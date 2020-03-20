@@ -1,0 +1,4 @@
+(
+  title: "simple_sprite_animations",
+  dimensions: Some((500, 500)),
+)

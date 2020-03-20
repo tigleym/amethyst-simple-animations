@@ -1,0 +1,13 @@
+[package]
+name = "simple_sprite_animation"
+version = "0.1.0"
+authors = []
+edition = "2018"
+
+[dependencies]
+amethyst = { git = "https://github.com/amethyst/amethyst", branch = "master", version = "0.14.0" }
+
+[features]
+default = ["metal"]
+metal = ["amethyst/metal"]
+vulkan = ["amethyst/vulkan"]
