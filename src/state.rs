@@ -12,6 +12,7 @@ pub const CAMERA_WIDTH: f32 = 100.0;
 pub struct Animation {
   pub frames: i32,
   pub frame_duration: u64,
+  pub first_sprite_index: usize,
 }
 
 impl Component for Animation {
@@ -53,19 +54,20 @@ fn initialize_sprite(world: &mut World, sprite_sheet_handle: Handle<SpriteSheet>
   let mut local_transform = Transform::default();
   local_transform.set_translation_xyz(CAMERA_WIDTH / 2.0, CAMERA_HEIGHT / 2.0, 0.0);
 
-  // Assign the sprite to display
+  let animation = Animation {
+    frames: 4,
+    frame_duration: 10,
+    first_sprite_index: 0, // the first frame for this example is the first sprite.
+  };
   let sprite_render = SpriteRender {
     sprite_sheet: sprite_sheet_handle,
-    sprite_number: 0, // the first frame for this example is the first sprite.
+    sprite_number: animation.first_sprite_index,
   };
 
   world
     .create_entity()
     .with(sprite_render)
-    .with(Animation {
-      frames: 4,
-      frame_duration: 10,
-    })
+    .with(animation)
     .with(local_transform)
     .build();
 }

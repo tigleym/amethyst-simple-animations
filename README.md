@@ -30,3 +30,6 @@ cargo run --features "empty"
 
 but be aware that as soon as you need any rendering you won't be able to run your game when using
 the `empty` feature.
+
+## Resources
+Spritesheet from https://0x72.itch.io/dungeontileset-ii
