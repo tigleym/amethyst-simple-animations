@@ -7,7 +7,6 @@ use amethyst::{
 
 use crate::state::Animation;
 
-#[derive(SystemDesc)]
 pub struct AnimationSystem;
 
 impl<'s> System<'s> for AnimationSystem {
