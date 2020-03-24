@@ -8,6 +8,15 @@ use amethyst::{
 
 pub const CAMERA_HEIGHT: f32 = 100.0;
 pub const CAMERA_WIDTH: f32 = 100.0;
+pub const PLAYER_HEIGHT: f32 = 28.0;
+pub const PLAYER_WIDTH: f32 = 16.0;
+
+#[derive(PartialEq, Eq)]
+pub enum Action {
+  Run,
+  Attack,
+  Idle,
+}
 
 pub struct Animation {
   pub frames: i32,
@@ -16,6 +25,20 @@ pub struct Animation {
 }
 
 impl Component for Animation {
+  type Storage = DenseVecStorage<Self>;
+}
+
+pub struct ActionStatus {
+  pub action_type: Action,
+}
+
+impl ActionStatus {
+  pub fn set_action_type(&mut self, action: Action) {
+    self.action_type = action;
+  }
+}
+
+impl Component for ActionStatus {
   type Storage = DenseVecStorage<Self>;
 }
 
@@ -59,6 +82,9 @@ fn initialize_sprite(world: &mut World, sprite_sheet_handle: Handle<SpriteSheet>
     frame_duration: 10,
     first_sprite_index: 0, // the first frame for this example is the first sprite.
   };
+  let action_status = ActionStatus {
+    action_type: Action::Idle,
+  };
   let sprite_render = SpriteRender {
     sprite_sheet: sprite_sheet_handle,
     sprite_number: animation.first_sprite_index,
@@ -68,6 +94,7 @@ fn initialize_sprite(world: &mut World, sprite_sheet_handle: Handle<SpriteSheet>
     .create_entity()
     .with(sprite_render)
     .with(animation)
+    .with(action_status)
     .with(local_transform)
     .build();
 }

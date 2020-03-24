@@ -3,8 +3,8 @@
 Simple sprite animation example to help myself learn how to use Amethyst game engine.
 
 ✔️ Idle animation
-
-🚧 Walking animation
+✔️ Walking Animation
+🚧 Hit animation
 
 ## How to run
 

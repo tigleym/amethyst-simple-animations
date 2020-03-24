@@ -26,5 +26,29 @@ List((
             width: 16,
             height: 28,
         ),
+        (
+            x: 192,
+            y: 164,
+            width: 16,
+            height: 28,
+        ),
+        (
+            x: 208,
+            y: 164,
+            width: 16,
+            height: 28,
+        ),
+        (
+            x: 224,
+            y: 164,
+            width: 16,
+            height: 28,
+        ),
+        (
+            x: 240,
+            y: 164,
+            width: 16,
+            height: 28,
+        ),
     ],
 ))
